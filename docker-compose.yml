@@ -223,3 +223,22 @@ services:
       - ${CYBER_DOJO_ENV_ROOT}/grafana.env
     ports:
       - '3000:3000'
+
+  # - - - - - - - - - - - - - - - - - - - - - - -
+  # EXPERIMENTING WITH REPLS
+
+  repl_container_python:
+    user: root
+    image: cyberdojo/repl_container_python
+    init: true
+    container_name: cyber-dojo-repl-container-python
+    read_only: false
+    tmpfs: /tmp
+    mem_limit: 2G
+    memswap_limit: 2G
+    restart: on-failure
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    ports:
+      # - ${CYBER_DOJO_REPL_CONTAINER_PYTHON_PORT}:${CYBER_DOJO_REPL_CONTAINER_PYTHON_PORT}
+      - 4647:4647
