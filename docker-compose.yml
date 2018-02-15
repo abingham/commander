@@ -227,11 +227,11 @@ services:
   # - - - - - - - - - - - - - - - - - - - - - - -
   # EXPERIMENTING WITH REPLS
 
-  repl_container_python:
+  runner_repl:
     user: root
-    image: cyberdojo/repl_container_python
+    image: cyberdojo/runner_repl
     init: true
-    container_name: cyber-dojo-repl-container-python
+    container_name: cyber-dojo-runner-repl
     read_only: false
     tmpfs: /tmp
     mem_limit: 2G
@@ -239,6 +239,3 @@ services:
     restart: on-failure
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-    ports:
-      # - ${CYBER_DOJO_REPL_CONTAINER_PYTHON_PORT}:${CYBER_DOJO_REPL_CONTAINER_PYTHON_PORT}
-      - 4647:4647
